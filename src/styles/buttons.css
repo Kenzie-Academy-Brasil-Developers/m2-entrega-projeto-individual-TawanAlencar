@@ -1,0 +1,31 @@
+/* BUTTONS PAGINA DE LOGIN */
+.login{
+    background-color: var(--azul-0);
+    border-radius: 4px;
+    padding: 4px;
+    border: transparent;
+    color: var(--branco);
+    cursor: pointer;
+}
+
+.cadastro button{
+    padding: 3px;
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--branco);
+}
+
+.cadastro button:hover{
+    background-color: var(--azul-0);
+    color: var(--branco);
+}
+/* BUTTONS PAGINA DE CADASTRO */
+.cadastrar{
+    background-color: var(--azul-0);
+    border-radius: 4px;
+    padding: 4px;
+    border: transparent;
+    color: var(--branco);
+    cursor: pointer;
+}
