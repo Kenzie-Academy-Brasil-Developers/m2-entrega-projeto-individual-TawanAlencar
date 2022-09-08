@@ -17,9 +17,14 @@ class Api{
     })
     return login
     }
-    
+
     static async fazerCadastro(body){
         const cadastro = await instance.post("auth/register/user",body)
+        .then((res)=> res)
+        .catch(err =>{
+            
+            Create.toastErro("Dados Inválidos")
+        })
         return cadastro
     }
 }

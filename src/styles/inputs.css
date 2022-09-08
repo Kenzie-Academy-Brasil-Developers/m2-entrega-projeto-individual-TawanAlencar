@@ -16,3 +16,9 @@
     padding: 5px;
     margin-bottom: 10px;
 }
+select{
+    padding: 8px;
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid var(--cinza-0);
+}
