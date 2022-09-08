@@ -38,15 +38,22 @@ class Render{
         })
     }
 
+    static irCadastro(){
+        const buttonCadastro  = document.querySelector("#cadastro")
+        buttonCadastro.addEventListener("click",(event)=>{
+            event.preventDefault()
+            location.replace("./cadastro.html")
+        })
+    }
     static selecionarEmpresa(){
         const select = document.querySelector("select")
         select.onchange = ()=>{
-            console.log(select.value)
             Render.renderLista( Api.listarEmpresasSetor(select.value))
     
         }
     }  
 }
+Render.irCadastro()
 Render.selecionarEmpresa()
 Render.renderLista(Api.listarEmpresas())
 Render.irLogin()
