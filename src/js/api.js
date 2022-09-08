@@ -10,7 +10,7 @@ class Api{
         .then((res) => {
             localStorage.setItem("@kenzieEmpresa:token",res.data.token)
             localStorage.setItem("@kenzieEmpresa:tokenID",res.data.uuid) 
-    
+            Create.toastSucesso("Login realizado com sucesso")
     })
     .catch(err => {
         Create.toastErro("Email ou senha inválidos")
@@ -20,12 +20,25 @@ class Api{
 
     static async fazerCadastro(body){
         const cadastro = await instance.post("auth/register/user",body)
-        .then((res)=> res)
+        .then((res)=> {
+            Create.toastSucesso("Cadastro realizado com sucesso")
+        })
         .catch(err =>{
-            
             Create.toastErro("Dados Inválidos")
         })
         return cadastro
+    }
+
+    static async listarEmpresas(){
+        const empresas = await instance.get("companies")
+        .then((res)=>res)
+        return empresas
+    }
+
+    static async listarEmpresasSetor(valor){
+        const setor = await instance.get(`companies/${valor}`)
+        .then((res)=>res)
+        return setor
     }
 }
 

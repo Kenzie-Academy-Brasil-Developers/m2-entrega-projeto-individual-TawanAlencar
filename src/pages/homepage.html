@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/homepage.css">
+    <link rel="stylesheet" href="../styles/inputs.css">
+    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Home Page</title>
+</head>
+<body>
+
+    <header class = "cabecalho">
+        <h1>Kenzie Empresas</h1>
+        <div>
+            <button>Home</button>
+            <button id="login">Login</button>
+        </div>
+    </header>
+
+    <main class = "container">
+        <section class ="lista_empresa">
+            <select>
+                <option value="">Todas as empresas</option>
+                <option value="Alimenticio">Alimenticio</option>
+                <option value="Varejo">Varejo</option>
+                <option value="Textil">Têxtil</option>
+                <option value="Manufatura">Manufatura</option>
+                <option value="Aeroespacial">Aeroespacial</option>
+                <option value="Automotiva">Automotiva</option>
+                <option value="TI">TI</option>
+                <option value="Atacado">Atacado</option>
+            </select>
+            <h1>Lista de Empresas</h1>
+            <ul class = "container_lista_empresa">
+                <!--  <li>
+                    <div class = "lista_empresa_texto">
+                        <h2></h2>
+                        <div class = "informacoes_da_e">
+                            <p></p>
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+        </section>
+    </main>
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="../js/homepage.js"></script>
+    <script type="module" src="../js/api.js"></script>
+</body>
+</html>

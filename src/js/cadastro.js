@@ -2,13 +2,14 @@ import { Api } from "./api.js"
 
 class Cadastrar{
     static renderCadastro(){
+        const formCadastro      = document.querySelector(".container_cadastro")
         const buttonCadastro    = document.querySelector('.cadastrar')
         const inputNome         = document.querySelector('#nome')
         const inputEmail        = document.querySelector('#email')
         const inputSenha        = document.querySelector('#senha')
         const select            = document.querySelector('#nivel')
         const buttonIrLogin     = document.querySelector(".cadastro button")
-        buttonCadastro.addEventListener('click',async (event)=>{
+        formCadastro.addEventListener('submit',async (event)=>{
             event.preventDefault()
             const dados = {
                 password            : inputSenha.value,
@@ -18,7 +19,9 @@ class Cadastrar{
             
             }
             await Api.fazerCadastro(dados)
-            location.replace("/index.html")
+            setTimeout(()=>{
+            location.replace("/index.html")  
+            },3000) 
         })
         buttonIrLogin.addEventListener("click", async (event)=>{
             event.preventDefault()
