@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/homepageadmin.css">
+    <link rel="stylesheet" href="../styles/inputs.css">
+    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Dashboard Admin</title>
+</head>
+<body>
+    <header class = "cabecalho">
+        <h1>Kenzie Empresas</h1>
+        <div>
+            <button id="sair">Sair</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class = "pagina_admin">
+            <div class = "todos_setores">
+                <button id="setores">Lista de Setores</button>
+                <div class = "separar_setores">
+                
+                </div>
+            </div>
+
+            <div class="todas_empresas">
+                <button id="empresas">Lista de Empresas</button>
+                <div class="separar_empresas"> 
+
+                </div>
+            </div>
+
+            <div class = "criar_empresa">
+                <button id="criar_empresa">Criar Empresas</button>
+            </div>
+            
+            <div>
+                <button id="departamentos">Lista de Departamentos</button>
+                <div>
+
+                </div>
+            </div>
+
+            <div>
+                <button id="criar_departamento">Criar Departamento</button>
+                <div>
+
+                </div>
+            </div>
+
+            <div>
+                <button id="funcionarios">Lista de Funcionários</button>
+                <div>
+
+                </div>
+            </div>
+            
+            <div class = "todos_usuarios">
+                <button id="usuarios">Lista de Usuários</button>
+                <div class="separar_usuarios">
+                    
+                </div>
+            </div>
+            
+        </section>
+        <form class = "gerar_empresa">
+            <h4>Cadastrar Empresas</h4>
+            <input class= "nome_empresa"type="text" placeholder="Digite o nome da empresa">
+            <input class="descricao_empresa"type="text" placeholder="Digite a descrição">
+            <input class="horario_empresa"type="time" placeholder="Digite o horário de abertura">
+            <select>
+                <option value="fb868249-69b1-4e07-b199-ba4649a24935">Alimentício</option>
+                <option value="8faf86e0-15c0-40c3-99fc-6cbc4def2b55">Varejo</option>
+                <option value="8d8c1003-3b54-4efe-9993-1dab04c941a7">Têxtil</option>
+                <option value="853ef21b-2e6d-4161-aacd-eb5ea6bd623b">Manufatura</option>
+                <option value="3f7bfcee-69a6-410b-86b4-e3bdd9fa3f08">Aeroespacial</option>
+                <option value="b54703d7-fd9a-4199-8a7c-b5e52e47a882">Automotiva</option>
+                <option value="a20ea46b-e043-4f62-a9f4-4e9ed01a2232">TI</option>
+                <option value="902cfb98-824a-4f74-8062-e9d22b2f401f">Atacado</option>
+            </select>
+            <button id="cadastrar_empresa">Cadastrar</button>
+        </form>
+    </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type= "module" src="../js/dashboardadmin.js"></script>
+    <script type = "module"src="../js/api.js"></script>
+</body>
+</html>

@@ -31,7 +31,7 @@
 }
 .lista_empresa{
     min-width: 320px;
-    border: 1px solid black;
+    border: 1px solid var(--preto);
     border-radius: 6px;
 }
 
@@ -86,7 +86,6 @@
         width: 100%;
         min-width: 320px;
         box-shadow: 0px 4px 40px;
-        justify-content: center;
         height: 400px;
         overflow-y: scroll;
         overflow-x: hidden;

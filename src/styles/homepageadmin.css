@@ -1,0 +1,134 @@
+.cabecalho{
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--azul-0);
+    padding: 5px;
+    color: var(--branco);
+    text-shadow: 4px 2px 2px var(--preto);
+    min-height: 70px;
+    align-items: center;
+    min-width: 320px;
+    z-index: 2;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.container{
+    display: flex;
+    margin-top: 80px;
+    min-width: 320px;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.pagina_admin{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    min-width: 200px;
+    height: 100%;
+}
+
+.separar_setores {
+    background-color: var(--azul-6);
+    display: none;
+}
+
+.separar_empresas{
+    background-color: var(--azul-6);
+    display: none;
+}
+.separar_empresas_close{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    line-height: 30px;
+    height: 200px;
+    overflow-y: scroll;
+}
+.separar_setores_close{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    line-height: 30px;
+    height: 200px;
+    overflow-y: scroll;
+}
+.separar_usuarios{
+    background-color: var(--azul-6);
+    display: none;
+}
+.separar_usuarios_close{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    line-height: 30px;
+    height: 200px;
+    overflow-y: scroll;
+    font-size: 14px;
+}
+.container_lista_empresa{
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    width: 100%;
+    min-width: 320px;
+    box-shadow: 0px 4px 40px;
+
+}
+.lista_empresa_texto{
+    display: flex;
+    line-height: 30px;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    font-size: 12px;
+    background-color: var(--azul-6);
+}
+
+.gerar_empresa{
+    display: none;
+    flex-direction: column;
+    background-color: var(--azul-6);
+    position: fixed;
+    top: 30%;
+    padding: 10px;
+    left: 10%;
+    width: 80%;
+
+}
+
+.gerar_empresa_close{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--azul-6);
+    position: fixed;
+    top: 30%;
+    padding: 10px;
+    left: 10%;
+    width: 80%;
+}
+.gerar_empresa select{
+    margin-bottom: 10px;
+}
+@media (min-width:768px){
+    .pagina_admin{
+        flex-direction: row;
+        align-items: flex-start;
+        margin: 0 auto;
+    }
+
+    .separar_empresas_close{
+        max-width: 180px;
+    }
+    .gerar_empresa{
+        width: 30%;
+        left: 30%;
+    }
+}

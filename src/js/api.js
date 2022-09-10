@@ -40,6 +40,29 @@ class Api{
         .then((res)=>res)
         return setor
     }
+
+    static async listarTodosSetores(){
+        const listSetores  = await instance.get("sectors")
+        .then((res)=>res)
+        return listSetores
+    }
+
+    static async listaUsuarios(){
+        const listUsuarios = await instance.get("users")
+        .then((res)=>res)
+        return listUsuarios
+    }
+
+    static async criarEmpresa(body){
+        const criar         = await instance.post("companies",body)
+        .then((res)=> {
+            Create.toastSucesso("Empresa Cadastrada com sucesso")
+        })
+        .catch(err =>{
+            Create.toastErro("Erro no cadastro")
+        })
+        return criar
+    }
 }
 
 export{Api}

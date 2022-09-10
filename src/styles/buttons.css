@@ -42,3 +42,41 @@ header button:hover{
     color: var(--branco);
     cursor: pointer;
 }
+
+/* BUTTONS DASHBOARD ADMIN */
+
+.pagina_admin button{
+    background-color: var(--azul-0);
+    padding: 10px;
+    border: transparent;
+    color: var(--branco);
+    cursor: pointer;
+    text-align: start;
+    width: 100%;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.pagina_admin button:hover{
+    background-color: var(--azul-4);
+    color: var(--preto);
+}
+
+.gerar_empresa button{
+    background-color: var(--azul-0);
+    padding: 10px;
+    border: transparent;
+    color: var(--branco);
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    
+}
+.gerar_empresa button:hover{
+    background-color: var(--azul-4);
+    color: var(--preto);
+}

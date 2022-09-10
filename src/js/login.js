@@ -14,9 +14,10 @@ class Login{
             }
             
             Api.fazerLogin(dados)
-           /*  setTimeout(()=>{
-                location.replace("./src/pages/homepage.html")  
-                },3000)  */
+            /* setTimeout(()=>{
+                location.replace("./src/pages/homepageadmin.html")  
+            },3000) 
+         */
         })
 
         buttonIrCadastro.addEventListener("click",(event)=>{
