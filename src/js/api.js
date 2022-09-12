@@ -11,6 +11,16 @@ class Api{
             localStorage.setItem("@kenzieEmpresa:token",res.data.token)
             localStorage.setItem("@kenzieEmpresa:tokenID",res.data.uuid) 
             Create.toastSucesso("Login realizado com sucesso")
+            
+            setTimeout(()=>{
+                if(res.data.is_admin == true){
+                    window.location.assign("./src/pages/dashboardadmin.html")
+                }else{
+                    window.alert("Deu ruim")
+                }
+
+            },3000)
+            
     })
     .catch(err => {
         Create.toastErro("Email ou senha inválidos")
@@ -54,7 +64,7 @@ class Api{
     }
 
     static async criarEmpresa(body){
-        const criar         = await instance.post("companies",body)
+        const criar        = await instance.post("companies",body)
         .then((res)=> {
             Create.toastSucesso("Empresa Cadastrada com sucesso")
         })
@@ -63,6 +73,17 @@ class Api{
         })
         return criar
     }
+
+    static async criarDepartamento(body){
+        const departamento  = await instance.post("departaments",body)
+        .then((res)=> {
+            Create.toastSucesso("Departamento criado com sucesso")
+        })
+        .catch(err =>{
+            Create.toastErro("Erro no cadastro")
+        })
+        return departamento
+    } 
 }
 
 export{Api}

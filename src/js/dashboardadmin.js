@@ -21,7 +21,16 @@ class Dashboard{
             });
         })
     }
-    
+    static async logout(){
+        const buttonLogout      =   document.querySelector("#sair")
+        buttonLogout.addEventListener("click", (event)=>{
+            event.preventDefault()
+            localStorage.removeItem("@kenzieEmpresa:token")
+            localStorage.removeItem("@kenzieEmoresa:tokenID")
+            window.location.assign("../../index.html")
+        })
+    }
+
     static async fecharSetores(){
         const buttonSetores     =   document.querySelector("#setores")
         const divSetores        =   document.querySelector(".separar_setores")
@@ -59,7 +68,7 @@ class Dashboard{
         })
         
     }
-
+    
     static async fecharEmpresas(){
         const buttonEmpresas     =   document.querySelector("#empresas")
         const divEmpresas        =   document.querySelector(".separar_empresas")
@@ -128,15 +137,38 @@ class Dashboard{
                 sector_uuid     : select.value
             }
             await Api.criarEmpresa(dados)
-
         })
     }
+
+    static async criarDepartamento(){
+        const apiEmpresas           = await Api.listarEmpresas()
+        const inputNomeDepartamento = document.querySelector(".nome_departamento")
+        const inputDescricao        = document.querySelector(".descricao_departamento")
+        const buttonDepartamento    = document.querySelector("#cadastrar_departamento")
+        const select                = document.querySelector(".gerar_departamento select")
+
+        apiEmpresas.data.forEach(element=>{
+            const optionName        = document.createElement("option")
+        
+            optionName.innerText    = element.name
+            optionName.id           = element.uuid
+
+            select.append(optionName)
+        })
+        buttonDepartamento.addEventListener("click", async (event)=>{
+            event.preventDefault()
+            const dados = {
+                name            : inputNomeDepartamento.value,
+                description     : inputDescricao.value,
+                company_uuid    : select.options[select.selectIndex].id
+            }
+            await Api.criarDepartamento(dados)
+        })
+    } 
 }
 
 
-
-
-
+Dashboard.criarDepartamento()
 Dashboard.cadastarEmpresa()
 Dashboard.modalCriarEmpresas()
 Dashboard.fecharSetores()
@@ -145,3 +177,4 @@ Dashboard.renderLista()
 Dashboard.fecharEmpresas()
 Dashboard.todosUsuarios()
 Dashboard.fecharUsuarios()
+Dashboard.logout()

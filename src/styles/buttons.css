@@ -80,3 +80,19 @@ header button:hover{
     background-color: var(--azul-4);
     color: var(--preto);
 }
+
+.gerar_departamento button{
+    background-color: var(--azul-0);
+    padding: 10px;
+    border: transparent;
+    color: var(--branco);
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    
+}
+.gerar_departamento button:hover{
+    background-color: var(--azul-4);
+    color: var(--preto);
+}
