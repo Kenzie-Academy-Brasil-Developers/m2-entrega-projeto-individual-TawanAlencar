@@ -16,7 +16,7 @@ class Api{
                 if(res.data.is_admin == true){
                     window.location.assign("./src/pages/dashboardadmin.html")
                 }else{
-                    window.alert("Deu ruim")
+                    window.location.reload()
                 }
 
             },3000)
