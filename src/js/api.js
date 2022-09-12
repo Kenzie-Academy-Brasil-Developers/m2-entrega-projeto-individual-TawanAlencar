@@ -75,8 +75,9 @@ class Api{
     }
 
     static async criarDepartamento(body){
-        const departamento  = await instance.post("departaments",body)
+        const departamento  = await instance.post("departments",body)
         .then((res)=> {
+            console.log(res)
             Create.toastSucesso("Departamento criado com sucesso")
         })
         .catch(err =>{

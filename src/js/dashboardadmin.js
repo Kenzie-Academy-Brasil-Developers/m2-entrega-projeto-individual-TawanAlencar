@@ -146,12 +146,12 @@ class Dashboard{
         const inputDescricao        = document.querySelector(".descricao_departamento")
         const buttonDepartamento    = document.querySelector("#cadastrar_departamento")
         const select                = document.querySelector(".gerar_departamento select")
-
+        console.log(apiEmpresas)
         apiEmpresas.data.forEach(element=>{
             const optionName        = document.createElement("option")
         
-            optionName.innerText    = element.name
-            optionName.id           = element.uuid
+            optionName.innerText       = element.name
+            optionName.value           = element.uuid
 
             select.append(optionName)
         })
@@ -160,14 +160,26 @@ class Dashboard{
             const dados = {
                 name            : inputNomeDepartamento.value,
                 description     : inputDescricao.value,
-                company_uuid    : select.options[select.selectIndex].id
+                company_uuid    : select.value
             }
-            await Api.criarDepartamento(dados)
+            console.log(await Api.criarDepartamento(dados))
         })
     } 
+    static async fecharDepartamentos(){
+        const buttonDepartamento        =   document.querySelector("#criar_departamento")
+        const formDepartamentos         =   document.querySelector(".gerar_departamento")
+        buttonDepartamento.addEventListener("click", (event)=>{
+            event.preventDefault()
+            formDepartamentos.classList.toggle("gerar_departamentos_close")
+        })
+    }
+    
+    static async listarDepartamentos(){
+        
+    }
 }
 
-
+Dashboard.fecharDepartamentos()
 Dashboard.criarDepartamento()
 Dashboard.cadastarEmpresa()
 Dashboard.modalCriarEmpresas()
