@@ -41,14 +41,14 @@ class Dashboard{
     }
 
     static async renderLista(request){
-        const {data}        = await request
+        const data          = request
         const divLista      = document.querySelector(".separar_empresas")
-        const ulLista       = document.createElement("ul")
-        ulLista.innerText = ""
+        const ulLista       = document.querySelector(".ul_lista")
+
         data.forEach((element,index)=>{
             const liEmpresa         =   document.createElement("li")
             const buttonEmpresaNome =   document.createElement("button")
-            const pEmpresaDescricao =   document.createElement("P")
+            const pEmpresaDescricao =   document.createElement("p")
             const pSetor            =   document.createElement("p")
             const spanHorario       =   document.createElement("span")
             const divEmpresa        =   document.createElement("div")
@@ -201,15 +201,29 @@ class Dashboard{
         })
     }
 
+    static selecionarEmpresaSetor(){
+        const select    = document.querySelector(".valor_empresa")
+        const ulLista   = document.querySelector(".ul_lista")
+
+        select.onchange = async ()=>{
+            ulLista.innerHTML = ""
+            
+            const renderFiltro  =   await Api.listarEmpresasSetor(select.value)
+            console.log(renderFiltro)
+            Dashboard.renderLista(renderFiltro.data)
+            console.log()
+        }
+    }
+
     static listarDepartamentosEmpresa(){
-        
+        const buttonEmpresas        =   document.querySelectorAll(".button_nome")
+
     }
 }
     
-
 /* Dashboard.mostrarDepartamentos() */
-
-Dashboard.renderLista(Api.listarEmpresas())
+const apiLista  = await Api.listarEmpresas()
+Dashboard.renderLista(apiLista.data)
 Dashboard.fecharDepartamentos()
 Dashboard.criarDepartamento()
 Dashboard.cadastarEmpresa()
@@ -220,3 +234,5 @@ Dashboard.fecharEmpresas()
 Dashboard.todosUsuarios()
 Dashboard.fecharUsuarios()
 Dashboard.logout()
+Dashboard.selecionarEmpresaSetor()
+Dashboard.listarDepartamentosEmpresa()

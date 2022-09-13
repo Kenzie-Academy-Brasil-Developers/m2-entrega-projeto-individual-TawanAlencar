@@ -48,6 +48,7 @@ class Api{
     static async listarEmpresasSetor(valor){
         const setor = await instance.get(`companies/${valor}`)
         .then((res)=>res)
+  
         return setor
     }
 

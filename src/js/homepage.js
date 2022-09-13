@@ -8,7 +8,7 @@ class Render{
         data.forEach(element=>{
             const liEmpresa         =   document.createElement("li")
             const h2EmpresaNome     =   document.createElement("h2")
-            const pEmpresaDescricao =   document.createElement("P")
+            const pEmpresaDescricao =   document.createElement("p")
             const pSetor            =   document.createElement("p")
             const spanHorario       =   document.createElement("span")
             const divEmpresa        =   document.createElement("div")
