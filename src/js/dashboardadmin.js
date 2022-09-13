@@ -40,11 +40,12 @@ class Dashboard{
         })
     }
 
-    static async renderLista(){
-        const {data}        = await Api.listarEmpresas()
+    static async renderLista(request){
+        const {data}        = await request
         const divLista      = document.querySelector(".separar_empresas")
-
-        data.forEach(element=>{
+        const ulLista       = document.createElement("ul")
+        ulLista.innerText = ""
+        data.forEach((element,index)=>{
             const liEmpresa         =   document.createElement("li")
             const buttonEmpresaNome =   document.createElement("button")
             const pEmpresaDescricao =   document.createElement("P")
@@ -52,10 +53,13 @@ class Dashboard{
             const spanHorario       =   document.createElement("span")
             const divEmpresa        =   document.createElement("div")
             const divInfoEmpresa    =   document.createElement("div")
-            
+
             divEmpresa.className            =   "lista_empresa_texto"
             divInfoEmpresa.className        =   "informacoes_da_empresa"
+            buttonEmpresaNome.className     =   "button_nome"
 
+            buttonEmpresaNome.setAttribute("id",index)
+            
             pSetor.innerText                =   `Setor: ${element.sectors.description}`
             pEmpresaDescricao.innerText     =   element.description
             buttonEmpresaNome.innerText     =   element.name
@@ -64,7 +68,8 @@ class Dashboard{
             divInfoEmpresa.append(pEmpresaDescricao,pSetor,spanHorario)
             divEmpresa.append(buttonEmpresaNome,divInfoEmpresa)
             liEmpresa.append(divEmpresa)
-            divLista.append(liEmpresa)
+            ulLista.append(liEmpresa)
+            divLista.append(ulLista)
         })
         
     }
@@ -146,7 +151,7 @@ class Dashboard{
         const inputDescricao        = document.querySelector(".descricao_departamento")
         const buttonDepartamento    = document.querySelector("#cadastrar_departamento")
         const select                = document.querySelector(".gerar_departamento select")
-        console.log(apiEmpresas)
+
         apiEmpresas.data.forEach(element=>{
             const optionName        = document.createElement("option")
         
@@ -162,30 +167,55 @@ class Dashboard{
                 description     : inputDescricao.value,
                 company_uuid    : select.value
             }
-            console.log(await Api.criarDepartamento(dados))
+            await Api.criarDepartamento(dados)
         })
     } 
+
     static async fecharDepartamentos(){
         const buttonDepartamento        =   document.querySelector("#criar_departamento")
         const formDepartamentos         =   document.querySelector(".gerar_departamento")
+        
         buttonDepartamento.addEventListener("click", (event)=>{
             event.preventDefault()
             formDepartamentos.classList.toggle("gerar_departamentos_close")
         })
     }
     
-    static async listarDepartamentos(){
+    static async mostrarDepartamentos(){
+        const apiLista              =   await Api.listarDepartamentos()
+        const buttonDepartamento    =   document.querySelector("#departamentos")
+        const divLista              =   document.querySelector(".lista_de_departamentos")
+
+        buttonDepartamento.addEventListener("click",(event)=>{
+            event.preventDefault()
+            divLista.innerHTML  =   ""
+            apiLista.data.forEach(element=>{
+                const pDepartamento            =   document.createElement("p")
+                const buttonFuncionarios       =   document.createElement("button")
+
+                pDepartamento.innerText        =   element.name
+                buttonFuncionarios.innerText   =   "Funcionários"
+
+                divLista.append(pDepartamento,buttonFuncionarios)
+            })
+        })
+    }
+
+    static listarDepartamentosEmpresa(){
         
     }
 }
+    
 
+/* Dashboard.mostrarDepartamentos() */
+
+Dashboard.renderLista(Api.listarEmpresas())
 Dashboard.fecharDepartamentos()
 Dashboard.criarDepartamento()
 Dashboard.cadastarEmpresa()
 Dashboard.modalCriarEmpresas()
 Dashboard.fecharSetores()
 Dashboard.setores()
-Dashboard.renderLista()
 Dashboard.fecharEmpresas()
 Dashboard.todosUsuarios()
 Dashboard.fecharUsuarios()

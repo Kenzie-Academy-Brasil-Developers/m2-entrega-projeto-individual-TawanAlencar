@@ -51,6 +51,8 @@
     line-height: 30px;
     height: 200px;
     overflow-y: scroll;
+    width: 180px;
+    max-width: 180px;
 }
 .separar_setores_close{
     display: flex;
@@ -63,6 +65,9 @@
 .separar_usuarios{
     background-color: var(--azul-6);
     display: none;
+}
+.busca_empresa{
+    display: flex;
 }
 .separar_usuarios_close{
     display: flex;
@@ -149,9 +154,6 @@
         margin: 0 auto;
     }
 
-    .separar_empresas_close{
-        max-width: 180px;
-    }
     .gerar_empresa{
         width: 30%;
         left: 30%;

@@ -57,6 +57,7 @@ header button:hover{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  
 
 }
 
@@ -74,6 +75,7 @@ header button:hover{
     text-align: center;
     width: 100%;
     font-weight: bold;
+    
     
 }
 .gerar_empresa button:hover{

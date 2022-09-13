@@ -24,7 +24,11 @@ select{
 }
 
 /* INPUTS DASHBOARD */
-
+.busca_empresa input{
+    padding: 5px;
+    border: 1px solid var(--cinza-0);
+    outline: none;
+}   
 .gerar_empresa input{
     height: 40px;
     outline: none;

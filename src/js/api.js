@@ -77,7 +77,6 @@ class Api{
     static async criarDepartamento(body){
         const departamento  = await instance.post("departments",body)
         .then((res)=> {
-            console.log(res)
             Create.toastSucesso("Departamento criado com sucesso")
         })
         .catch(err =>{
@@ -85,6 +84,18 @@ class Api{
         })
         return departamento
     } 
+    
+    static async listarDepartamentos(){
+        const listDepartaments  = await instance.get("departments")
+        .then((res)=>res)
+        return listDepartaments
+    }
+
+    static async listarDepartamentosDeUmaEmpresa(valor){
+        const listDepartamentosEmpresa  = await instance.get(`departments/${valor}`)
+        .then((res)=>res)
+        return listDepartamentosEmpresa
+    }
 }
 
 export{Api}
