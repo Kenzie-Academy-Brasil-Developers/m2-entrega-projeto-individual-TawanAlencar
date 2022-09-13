@@ -209,18 +209,28 @@ class Dashboard{
             ulLista.innerHTML = ""
             
             const renderFiltro  =   await Api.listarEmpresasSetor(select.value)
-            console.log(renderFiltro)
             Dashboard.renderLista(renderFiltro.data)
-            console.log()
+
         }
     }
 
     static listarDepartamentosEmpresa(){
         const buttonEmpresas        =   document.querySelectorAll(".button_nome")
+        const sectionDepartamentos  =   document.querySelector(".departamentos_empresa_especifica") 
+        const divDepartamentos      =   document.querySelector("mostrar_departamentos") 
 
+        console.log(buttonEmpresas)
+        buttonEmpresas.forEach((element,index)=>{
+            element.addEventListener("click",(event)=>{
+                event.preventDefault()
+                if(element.id == index){
+                    
+                }
+            })
+        })
     }
 }
-    
+
 /* Dashboard.mostrarDepartamentos() */
 const apiLista  = await Api.listarEmpresas()
 Dashboard.renderLista(apiLista.data)
