@@ -98,3 +98,12 @@ header button:hover{
     background-color: var(--azul-4);
     color: var(--preto);
 }
+
+.mostrar_departamentos button{
+    width: 30%;
+    padding: 5px;
+    background-color: var(--azul-0);
+    color: var(--branco);
+    border: transparent;
+    cursor: pointer;
+}

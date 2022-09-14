@@ -43,6 +43,7 @@
 .separar_empresas{
     background-color: var(--azul-6);
     display: none;
+    overflow-y: scroll;
 }
 .separar_empresas_close{
     display: flex;
@@ -141,6 +142,37 @@
     left: 10%;
     width: 80%;
 }
+.departamentos_empresa_especifica{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top: 60%;
+    left:25%;
+}
+
+.mostrar_departamentos{
+    display: none;
+    flex-direction: column;
+    line-height: 25px;
+    padding: 10px;
+    background-color: var(--azul-4);
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 20px;
+    font-size: 16px;
+    
+} 
+/* .mostrar_departamentos_close{
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+    padding: 10px;
+    background-color: var(--azul-4);
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 20px;
+    font-size: 16px;
+} */
 .gerar_empresa select{
     margin-bottom: 10px;
 }
@@ -162,4 +194,13 @@
         width: 30%;
         left: 30%;
     }
+
+    .departamentos_empresa_especifica{
+        width: 200px;
+        height: 200px;
+        position: fixed;
+        top: 50%;
+        left:45%;
+    }
+    
 }

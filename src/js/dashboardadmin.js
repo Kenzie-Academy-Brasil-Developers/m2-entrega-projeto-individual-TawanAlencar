@@ -45,7 +45,8 @@ class Dashboard{
         const divLista      = document.querySelector(".separar_empresas")
         const ulLista       = document.querySelector(".ul_lista")
 
-        data.forEach((element,index)=>{
+        data.forEach((element)=>{
+    
             const liEmpresa         =   document.createElement("li")
             const buttonEmpresaNome =   document.createElement("button")
             const pEmpresaDescricao =   document.createElement("p")
@@ -58,7 +59,7 @@ class Dashboard{
             divInfoEmpresa.className        =   "informacoes_da_empresa"
             buttonEmpresaNome.className     =   "button_nome"
 
-            buttonEmpresaNome.setAttribute("id",index)
+            buttonEmpresaNome.setAttribute("id",element.uuid)
             
             pSetor.innerText                =   `Setor: ${element.sectors.description}`
             pEmpresaDescricao.innerText     =   element.description
@@ -181,26 +182,6 @@ class Dashboard{
         })
     }
     
-    static async mostrarDepartamentos(){
-        const apiLista              =   await Api.listarDepartamentos()
-        const buttonDepartamento    =   document.querySelector("#departamentos")
-        const divLista              =   document.querySelector(".lista_de_departamentos")
-
-        buttonDepartamento.addEventListener("click",(event)=>{
-            event.preventDefault()
-            divLista.innerHTML  =   ""
-            apiLista.data.forEach(element=>{
-                const pDepartamento            =   document.createElement("p")
-                const buttonFuncionarios       =   document.createElement("button")
-
-                pDepartamento.innerText        =   element.name
-                buttonFuncionarios.innerText   =   "Funcionários"
-
-                divLista.append(pDepartamento,buttonFuncionarios)
-            })
-        })
-    }
-
     static selecionarEmpresaSetor(){
         const select    = document.querySelector(".valor_empresa")
         const ulLista   = document.querySelector(".ul_lista")
@@ -214,30 +195,74 @@ class Dashboard{
         }
     }
 
-    static listarDepartamentosEmpresa(){
+    static async listarDepartamentosEmpresa(){
         const buttonEmpresas        =   document.querySelectorAll(".button_nome")
-        const sectionDepartamentos  =   document.querySelector(".departamentos_empresa_especifica") 
-        const divDepartamentos      =   document.querySelector("mostrar_departamentos") 
+        const divDepartamentos      =   document.querySelector(".mostrar_departamentos") 
+        const buttonFechar          =   document.createElement("button")
 
-        console.log(buttonEmpresas)
-        buttonEmpresas.forEach((element,index)=>{
-            element.addEventListener("click",(event)=>{
+        buttonFechar.setAttribute("id","fechar")
+        buttonFechar.innerText      =   "Fechar"
+        
+        buttonEmpresas.forEach((element)=>{
+            element.addEventListener("click",async (event)=>{
                 event.preventDefault()
-                if(element.id == index){
-                    
+            
+                divDepartamentos.innerHTML = ""
+                const apiDepartamentos          =   await Api.listarDepartamentosDeUmaEmpresa(element.id)
+                
+                if(apiDepartamentos.data.length > 0){
+                    apiDepartamentos.data.forEach(element=>{
+                        const pNome                    =   document.createElement("p")
+                        const pEmpresaDescricao        =   document.createElement("p")
+                        
+                        pNome.innerText                =   `Departamento:${element.name}`
+                        pEmpresaDescricao.innerText    =   `Descrição:${element.description}`
+                        divDepartamentos.append(pNome,pEmpresaDescricao,buttonFechar)
+                        
+                    })
+                }else{
+                    divDepartamentos.append(buttonFechar)
                 }
+                setTimeout(()=>{
+                    Dashboard.fecharDepartamentosSelecionado()
+                },1000)
             })
         })
     }
+
+    static abrirDepartamentos(){
+        const buttonDivEmpresas     =  document.querySelector(".separar_empresas")
+        const divDepartamentos      =  document.querySelector(".mostrar_departamentos")
+       
+        buttonDivEmpresas.addEventListener("click",(event)=>{
+            if(event.target.tagName == "BUTTON"){
+                divDepartamentos.style.display = "flex"
+            }
+            
+    
+        })
+    }
+    
+    static fecharDepartamentosSelecionado(){
+        const divDepartamentos      =  document.querySelector(".mostrar_departamentos")
+        const buttonFechar          =  document.querySelector("#fechar")
+
+            if(buttonFechar){
+                buttonFechar.addEventListener("click",(event)=>{   
+                    event.preventDefault()
+                    divDepartamentos.style.display = "none"
+                })
+
+            }
+        }
 }
 
-/* Dashboard.mostrarDepartamentos() */
 const apiLista  = await Api.listarEmpresas()
 Dashboard.renderLista(apiLista.data)
-Dashboard.fecharDepartamentos()
-Dashboard.criarDepartamento()
 Dashboard.cadastarEmpresa()
 Dashboard.modalCriarEmpresas()
+Dashboard.criarDepartamento()
+Dashboard.fecharDepartamentos()
 Dashboard.fecharSetores()
 Dashboard.setores()
 Dashboard.fecharEmpresas()
@@ -246,3 +271,7 @@ Dashboard.fecharUsuarios()
 Dashboard.logout()
 Dashboard.selecionarEmpresaSetor()
 Dashboard.listarDepartamentosEmpresa()
+Dashboard.abrirDepartamentos()
+
+
+

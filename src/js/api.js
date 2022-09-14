@@ -33,6 +33,7 @@ class Api{
         .then((res)=> {
             Create.toastSucesso("Cadastro realizado com sucesso")
         })
+        
         .catch(err =>{
             Create.toastErro("Dados Inválidos")
         })
@@ -69,6 +70,11 @@ class Api{
         .then((res)=> {
             Create.toastSucesso("Empresa Cadastrada com sucesso")
         })
+        .then((res)=> {
+            setTimeout(()=>{
+                window.location.reload()
+            },3000)
+        })
         .catch(err =>{
             Create.toastErro("Erro no cadastro")
         })
@@ -79,6 +85,11 @@ class Api{
         const departamento  = await instance.post("departments",body)
         .then((res)=> {
             Create.toastSucesso("Departamento criado com sucesso")
+        })
+        .then((res)=> {
+            setTimeout(()=>{
+                window.location.reload()
+            },3000)
         })
         .catch(err =>{
             Create.toastErro("Erro no cadastro")
