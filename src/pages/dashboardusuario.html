@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/dashboardusuario.css">
+    <link rel="stylesheet" href="../styles/inputs.css">
+    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Dashboard Usuário</title>
+</head>
+<body>
+    <header class = "cabecalho">
+        <h1>Kenzie Empresas</h1>
+        <div>
+            <button id="sair">Sair</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="pagina_usuario">
+            <div class = "todos_funcionarios">
+                <button id="funcionarios">Lista de Funcionários</button>
+                <h2 class = "meu_departamento"></h2>
+                <div class = "separar_funcionarios">
+                
+                </div>
+            </div>
+
+            <div class = "todas_empresas">
+                <button id="empresa">Minha Empresa</button>
+
+                <div class = "separar_empresas">
+                
+                </div>
+            </div>
+            <div class = "minha_info">
+                <button id="minha_info"> Minhas informações</button>
+                <div class = "mostrar_minha_info">
+                    
+                </div>
+            </div>
+
+            <div class = "funcionario_info">
+                <button id="info">Editar Minhas informações</button>
+
+                <div class = "mostrar_info">
+                
+                </div>
+            </div>
+
+        </section>
+
+        <form class ="alterar_info">
+            <h4>Altere suas informações</h4>
+            <input class    =   "nome_funcionario"    type  =   "text"      placeholder  =   "Digite seu novo username">
+            <input class    =   "email_funcionario"   type  =   "text"      placeholder  =   "Digite seu novo email">
+            <input class    =   "senha_funcionario"   type  =   "password"  placeholder  =   "Digite sua nova senha">
+            <button id="alterar">Alterar</button>
+        </form>
+    </main>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type= "module" src="../js/dashboardusuario.js"></script>
+    <script type = "module"src="../js/api.js"></script>
+</body>
+</html>

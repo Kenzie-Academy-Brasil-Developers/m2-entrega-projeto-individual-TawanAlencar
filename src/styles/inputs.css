@@ -23,7 +23,7 @@ select{
     border: 1px solid var(--cinza-0);
 }
 
-/* INPUTS DASHBOARD */
+/* INPUTS DASHBOARD ADMIN */
 .busca_empresa input{
     padding: 5px;
     border: 1px solid var(--cinza-0);
@@ -38,6 +38,17 @@ select{
     margin-top: 10px;
 }
 .gerar_departamento input{
+    height: 40px;
+    outline: none;
+    border: 1px solid var(--cinza-0);
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* INPUTS DASHBOARD USUARIO */
+
+.alterar_info input{
     height: 40px;
     outline: none;
     border: 1px solid var(--cinza-0);

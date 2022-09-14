@@ -107,3 +107,45 @@ header button:hover{
     border: transparent;
     cursor: pointer;
 }
+
+/* BUTTONS DASHBOARD NORMAL */
+
+.pagina_usuario button{
+    background-color: var(--azul-0);
+    padding: 10px;
+    border: transparent;
+    color: var(--branco);
+    cursor: pointer;
+    text-align: start;
+    width: 100%;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.pagina_usuario button:hover{
+    background-color: var(--azul-4);
+    color: var(--preto);
+}
+
+.alterar_info button{
+    background-color: var(--azul-0);
+    padding: 10px;
+    border: transparent;
+    color: var(--branco);
+    cursor: pointer;
+    text-align: start;
+    width: 100%;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.alterar_info button:hover{
+    background-color: var(--azul-4);
+    color: var(--preto);
+}

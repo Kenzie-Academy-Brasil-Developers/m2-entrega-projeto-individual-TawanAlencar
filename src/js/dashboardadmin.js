@@ -233,7 +233,7 @@ class Dashboard{
     static abrirDepartamentos(){
         const buttonDivEmpresas     =  document.querySelector(".separar_empresas")
         const divDepartamentos      =  document.querySelector(".mostrar_departamentos")
-       
+
         buttonDivEmpresas.addEventListener("click",(event)=>{
             if(event.target.tagName == "BUTTON"){
                 divDepartamentos.style.display = "flex"
@@ -247,14 +247,17 @@ class Dashboard{
         const divDepartamentos      =  document.querySelector(".mostrar_departamentos")
         const buttonFechar          =  document.querySelector("#fechar")
 
-            if(buttonFechar){
-                buttonFechar.addEventListener("click",(event)=>{   
-                    event.preventDefault()
-                    divDepartamentos.style.display = "none"
-                })
+        if(buttonFechar){
+            buttonFechar.addEventListener("click",(event)=>{   
+                event.preventDefault()
+                divDepartamentos.style.display = "none"
+            })
 
-            }
         }
+        
+    }
+
+    
 }
 
 const apiLista  = await Api.listarEmpresas()

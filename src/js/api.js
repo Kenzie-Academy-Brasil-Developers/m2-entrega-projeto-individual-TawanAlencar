@@ -16,7 +16,7 @@ class Api{
                 if(res.data.is_admin == true){
                     window.location.assign("./src/pages/dashboardadmin.html")
                 }else{
-                    window.location.reload()
+                    window.location.assign("./src/pages/dashboardusuario.html")
                 }
 
             },3000)
@@ -107,6 +107,34 @@ class Api{
         const listDepartamentosEmpresa  = await instance.get(`departments/${valor}`)
         .then((res)=>res)
         return listDepartamentosEmpresa
+    }
+
+    static async funcionariosMesmoDepartamento(){
+        const funcionarios              = await instance.get(`users/departments/coworkers`)
+        .then((res)=>res)
+        return funcionarios
+    }
+    
+    static async editarDados(body){
+        const infoFuncionario           = await instance.patch("users",body)
+        .then((res)=> {
+            Create.toastSucesso("Dados alterados com sucesso")
+        })
+        .then((res)=> {
+            setTimeout(()=>{
+                window.location.reload()
+            },3000)
+        })
+        .catch(err =>{
+            Create.toastErro("Verifique suas informações")
+        })
+        return infoFuncionario
+    }
+
+    static async listarMinhasInfo(){
+        const   info       =    await instance.get("users/profile")
+        .then((res)=>res)
+        return info
     }
 }
 
