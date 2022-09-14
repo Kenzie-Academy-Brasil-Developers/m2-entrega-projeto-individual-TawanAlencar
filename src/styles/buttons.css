@@ -125,6 +125,7 @@ header button:hover{
 
 }
 
+
 .pagina_usuario button:hover{
     background-color: var(--azul-4);
     color: var(--preto);
