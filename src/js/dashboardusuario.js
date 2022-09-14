@@ -107,7 +107,30 @@ class DashboardNormal{
             divInfo.classList.toggle("mostrar_minha_info_close")
         })
     }
+    /* static async minhaEmpresa(){
+        const apiEmpresas   =   await Api.listarDepartamentos()
+        
+        const divEmpresa    =   document.querySelector(".separar_empresas")
+        const buttonEmpresa =   document.querySelector("#empresa")
+        const [{
+            company_uuid
+        }] = apiEmpresas
 
+        const apiLista      =   await Api.listarEmpresas()
+        console.log(apiLista)
+        buttonEmpresa.addEventListener("click",(event)=>{
+            event.preventDefault()
+
+            apiLista.data.forEach(async element=>{
+                console.log(element)
+                if(element.uuid == company_uuid){
+                    const h2Empresa =   document.createElement("h2")
+                    h2Empresa.innerText = element.name
+                    divEmpresa.append(h2Empresa)
+                }
+            }) 
+        })
+    } */
 }
 
 DashboardNormal.mostrarFuncionarios()
@@ -117,3 +140,4 @@ DashboardNormal.alterarInformacoes()
 DashboardNormal.abrirInfo()
 DashboardNormal.mostrarInfo()
 DashboardNormal.fecharInfo()
+/* DashboardNormal.minhaEmpresa() */
